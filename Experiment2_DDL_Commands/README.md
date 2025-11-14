@@ -106,123 +106,179 @@ CREATE TABLE Table_Name (
 **Question 1**
 --
 -- Paste Question 1 here
-
+Write a SQL query to Add a new ParentsNumber column  as number and Adhar_Number as Number in the Student_details table.
 ```sql
--- Paste your SQL code below for Question 1
+alter table Student_details add column ParentsNumber number;
+alter table Student_details add column Adhar_Number number;
 ```
 
 **Output:**
+<img width="1338" height="388" alt="image" src="https://github.com/user-attachments/assets/7c4307d2-4678-4ba3-9bc7-79f32a4b5f52" />
 
-![Output1](output.png)
 
 **Question 2**
 ---
--- Paste Question 2 here
+Write an SQL query to add two new columns, designation and net_salary, to the table Companies. The designation column should have a data type of varchar(50), and the net_salary column should have a data type of number.
 
 ```sql
--- Paste your SQL code below for Question 2
+alter table Companies add column designation varchar(50);
+alter table Companies add column net_salary number;
 ```
 
 **Output:**
 
-![Output2](output.png)
 
 **Question 3**
 ---
--- Paste Question 3 here
+Create a table named Employees with the following constraints:
+
+EmployeeID should be the primary key.
+FirstName and LastName should be NOT NULL.
+Email should be unique.
+Salary should be greater than 0.
+DepartmentID should be a foreign key referencing the Departments table.
 
 ```sql
--- Paste your SQL code below for Question 3
+create table Employees(
+    EmployeeID INTEGER primary key,
+    FirstName TEXT NOT NULL,
+    LastName TEXT NOT NULL,
+    Email  text UNIQUE,
+    Salary INTEGER check(Salary>0),
+    DepartmentID INTEGER,
+    foreign key(DepartmentID) REFERENCES Departments
+);
 ```
 
 **Output:**
 
-![Output3](output.png)
+<img width="1231" height="505" alt="image" src="https://github.com/user-attachments/assets/ce0d3c02-68f7-4365-b0f6-1ab226318624" />
+
 
 **Question 4**
 ---
--- Paste Question 4 here
+create a table named jobs including columns job_id, job_title, min_salary and max_salary, and make sure that, the default value for job_title is blank and min_salary is 8000 and max_salary is NULL will be entered automatically at the time of insertion if no value assigned for the specified columns.
 
 ```sql
--- Paste your SQL code below for Question 4
+create table jobs(
+    job_id integer,
+    job_title text,
+    min_salary integer default 8000,
+    max_salary integer null
+);
 ```
 
 **Output:**
 
-![Output4](output.png)
+<img width="1233" height="411" alt="image" src="https://github.com/user-attachments/assets/243adbd8-da7a-45fe-aba8-9b78f16a4cb5" />
 
 **Question 5**
 ---
--- Paste Question 5 here
+Insert a student with RollNo 201, Name David Lee, Gender M, Subject Physics, and MARKS 92 into the Student_details table.
 
 ```sql
--- Paste your SQL code below for Question 5
+insert into Student_details(RollNo,Name,Gender,Subject,MARKS)values(201,'David Lee','M','Physics',92);
 ```
 
 **Output:**
 
-![Output5](output.png)
+<img width="1228" height="317" alt="image" src="https://github.com/user-attachments/assets/06ce2949-5097-452e-aad8-ac3c4dcbef38" />
+
 
 **Question 6**
 ---
--- Paste Question 6 here
+Create a table named Members with the following columns:
+
+MemberID as INTEGER
+MemberName as TEXT
+JoinDate as DATE
 
 ```sql
--- Paste your SQL code below for Question 6
+create table Members(
+    MemberID INTEGER,
+    MemberName TEXT,
+    JoinDate DATE
+);
 ```
 
 **Output:**
 
-![Output6](output.png)
+<img width="1230" height="459" alt="image" src="https://github.com/user-attachments/assets/4879f1c3-02fb-49a0-8ef4-ebfb46fa1bce" />
+
 
 **Question 7**
 ---
--- Paste Question 7 here
+Create a table named Department with the following constraints:
+DepartmentID as INTEGER should be the primary key.
+DepartmentName as TEXT should be unique and not NULL.
+Location as TEXT.
 
 ```sql
--- Paste your SQL code below for Question 7
+create table Department(
+    DepartmentID INTEGER primary key,
+    DepartmentName text unique not null,
+    Location text
+);
 ```
 
 **Output:**
 
-![Output7](output.png)
+
 
 **Question 8**
 ---
--- Paste Question 8 here
+Insert all books from Out_of_print_books into Books
+
+Table attributes are ISBN, Title, Author, Publisher, YearPublished
 
 ```sql
--- Paste your SQL code below for Question 8
+insert into Books(ISBN,Title,Author,Publisher,YearPublished)select * from Out_of_print_books;
 ```
 
 **Output:**
 
-![Output8](output.png)
+
 
 **Question 9**
 ---
--- Paste Question 9 here
+Write a SQL Query for inserting the below values in the table Customers
 
 ```sql
--- Paste your SQL code below for Question 9
+insert into Customers(ID,NAME,AGE,ADDRESS,SALARY)VALUES
+        (1,'Ramesh',32,'Ahmedabad',2000),
+        (2,'Khilan',25,'Delhi',1500),
+        (3,'Kaushik',23,'Kota',2000);
 ```
 
 **Output:**
 
-![Output9](output.png)
+<img width="1212" height="354" alt="image" src="https://github.com/user-attachments/assets/263c8e6f-35ef-4f73-9ed5-9eadb0d3c934" />
+
 
 **Question 10**
 ---
--- Paste Question 10 here
+Create a table named Shipments with the following constraints:
+ShipmentID as INTEGER should be the primary key.
+ShipmentDate as DATE.
+SupplierID as INTEGER should be a foreign key referencing Suppliers(SupplierID).
+OrderID as INTEGER should be a foreign key referencing Orders(OrderID).
 
 ```sql
--- Paste your SQL code below for Question 10
+create table Shipments(
+    ShipmentID INTEGER PRIMARY KEY,
+    ShipmentDate date,
+    SupplierID integer,
+    OrderID integer,
+    FOREIGN KEY(SupplierID) references Suppliers(supplierID),
+    foreign key(OrderID) references Orders(OrderID)
+);
 ```
 
 **Output:**
+<img width="1231" height="305" alt="image" src="https://github.com/user-attachments/assets/39d20e4f-959b-4cd6-9777-d870efd83743" />
 
-![Output10](output.png)
-
+**Completion status:**
+<img width="1110" height="226" alt="image" src="https://github.com/user-attachments/assets/54c3cc25-fc6a-4a70-9102-044d2a3dd4e6" />
 
 ## RESULT
 Thus, the SQL queries to implement different types of constraints and DDL commands have been executed successfully.
